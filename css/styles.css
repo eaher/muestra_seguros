@@ -237,6 +237,14 @@ h1, h2, h3, h4 {
     animation: slideInRight 0.8s ease forwards;
 }
 
+@media (max-width: 768px) {
+    .service-card {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
 
 /*-----------------------------------------------------------*/
 /* Ícono flotante */
