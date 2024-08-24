@@ -143,23 +143,26 @@ h1, h2, h3, h4 {
     margin-top: 10px;
     margin-bottom: 20px;
     padding: 20px;
-
+    font-family: 'Montserrat', sans-serif; /* Asegura que use Montserrat */
+    text-align: center;
 }
 
 #servicios .card {
     border: none; /* Eliminar borde */
-    border-radius: 10px;
+    border-radius: 10px; /* Bordes redondeados */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
     transition: transform 0.3s, box-shadow 0.3s; /* Transición para hover */
+    overflow: hidden; /* Asegura que el contenido de la tarjeta esté contenido */
 }
 
 #servicios .card:hover {
     transform: translateY(-10px); /* Levanta la tarjeta en hover */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más intensa en hover */
 }
 
 #servicios .card-title, #servicios .card-text {
     font-family: 'Montserrat', sans-serif; /* Asegura que use Montserrat */
+    color: #333; /* Color de texto oscuro para mejor legibilidad */
 }
 
 /* Inicialmente oculta las tarjetas de servicio */
@@ -192,13 +195,24 @@ h1, h2, h3, h4 {
 }
 
 /* Desactivar transiciones en pantallas pequeñas */
-@media (max-width: 768px) {
+@media (max-width: 920px) {
     .service-card {
         opacity: 1; /* Muestra las tarjetas sin transición */
         transform: none; /* Elimina transformaciones */
         transition: none; /* Elimina transiciones */
+        box-shadow: none; /* Elimina la sombra para un diseño más limpio en pantallas pequeñas */
+    }
+    #servicios .card:hover {
+        transform: none; /* Desactiva el efecto de hover en pantallas pequeñas */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra más ligera en hover */
+    }
+    #servicios .card img {
+        height: auto; /* Asegura que las imágenes mantengan su proporción */
+        object-fit: cover; /* Mantiene el ajuste de la imagen en su contenedor */
     }
 }
+
+
 
 /*-----------------------------------------------------------*/
 /* Ícono flotante */
@@ -210,17 +224,25 @@ h1, h2, h3, h4 {
 }
 
 .whatsapp-icon {
-    width: 70px;
-    height: 70px;
-    transition: transform 0.3s ease, filter 0.3s ease;
-    filter: grayscale(100%);
+    max-width: 70px;
+    max-height: 70px;
+    transition: transform 0.3s ease; /* Transición para el efecto de agrandamiento */
+    filter: none; /* Elimina el filtro de escala de grises para que siempre esté en color */
 }
 
 .whatsapp-icon:hover {
-    transform: scale(1.15);
-    filter: grayscale(0);
-    animation: heartbeat 1.2s ease-in-out infinite;
+    transform: scale(1.15); /* Agranda el ícono al pasar el mouse */
 }
+
+@media (max-width: 920px) {
+    .whatsapp-icon {
+        max-width: 50px;
+        max-height: 50px;
+        transition: transform 0.3s ease; /* Transición para el efecto de agrandamiento */
+        filter: none; /* Elimina el filtro de escala de grises para que siempre esté en color */
+    }
+    }
+
 
 /*-----------------------------------------------------------*/
 /* Contacto */
@@ -272,10 +294,64 @@ h1, h2, h3, h4 {
 #contacto p {
     font-size: 1.2rem; /* Ajusta el tamaño de la fuente */
     color: #333; /* Color del texto */
-    margin-bottom: 10px; /* Espacio debajo del texto */
+    margin-bottom: 20px; /* Espacio debajo del texto */
+    margin-top: 20px;
 }
 
 
+/*-----------------------------------------------------------*/
+/* Footer */
 
+footer {
+    background-color: #333; /* Fondo oscuro del footer */
+    color: #fff; /* Color de texto blanco */
+    padding: 20px 0;
+}
 
+footer .row {
+    display: flex; /* Utiliza flexbox para la disposición */
+    justify-content: space-between; /* Espacio entre los contenedores */
+    flex-wrap: nowrap; /* Mantiene los elementos en una fila horizontal */
+}
 
+footer .col-md-4 {
+    position: relative; /* Posiciona relativo para usar pseudo-elementos */
+    flex: 1; /* Asegura que las columnas se expandan por igual */
+    padding: 10px 20px; /* Espaciado interno */
+    box-sizing: border-box; /* Incluye padding y border en el ancho total */
+}
+
+footer .col-md-4:not(:last-child)::after {
+    content: ""; /* Crea un elemento vacío para la línea de separación */
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1px; /* Ancho de la línea vertical */
+    height: 100%;
+    background-color: #fff; /* Color blanco para la línea */
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+    footer .row {
+        flex-direction: row; /* Mantiene los contenedores en fila horizontal */
+        justify-content: space-around; /* Distribuye el espacio de manera uniforme */
+    }
+    
+    footer .col-md-4 {
+        flex: 1 1 30%; /* Ajusta el ancho de las columnas para mejor distribución */
+        text-align: center; /* Centra el contenido para una mejor apariencia */
+        padding: 15px; /* Ajusta el espaciado interno */
+    }
+    
+    footer .col-md-4:not(:last-child)::after {
+        content: ""; /* Asegura que las líneas de separación permanezcan */
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        width: 1px; /* Ancho de la línea vertical */
+        height: 50%; /* Ajusta la altura para que se vea estéticamente en pantallas pequeñas */
+        background-color: #fff; /* Color blanco para la línea */
+    }
+}
