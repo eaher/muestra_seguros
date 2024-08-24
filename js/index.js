@@ -8,6 +8,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+
 //Efecto servicios
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -17,21 +18,18 @@ document.addEventListener("DOMContentLoaded", function() {
     serviceSection.addEventListener('mouseenter', function() {
         serviceCards.forEach((card, index) => {
             setTimeout(() => {
-                if (index % 2 === 0) {
-                    card.classList.add('slide-in-left');
-                } else {
-                    card.classList.add('slide-in-right');
-                }
-            }, index * 150); // Ajusta el retardo entre las animaciones de las imágenes
+                card.classList.add('slide-in-left');
+            }, index * 200); // Ajusta el retardo entre las animaciones para un efecto más suave
         });
     });
 
     serviceSection.addEventListener('mouseleave', function() {
         serviceCards.forEach((card) => {
-            card.classList.remove('slide-in-left', 'slide-in-right');
+            card.classList.remove('slide-in-left');
         });
     });
 });
+
 
 
 //pantalla de carga 
@@ -49,5 +47,25 @@ document.addEventListener("DOMContentLoaded", function() {
     }, 3000); // Mantiene la pantalla de carga visible durante 3 segundos
 });
 
-//
+//Navbar
+
+document.addEventListener("DOMContentLoaded", function() {
+    const navbar = document.querySelector('.navbar');
+    const inicioSection = document.querySelector('#inicio');
+
+    // Función para manejar el cambio de clase en el navbar
+    const handleNavbarBackground = () => {
+        const inicioHeight = inicioSection.offsetHeight; // Altura de la sección de inicio
+        const scrollPosition = window.scrollY; // Posición actual del scroll
+
+        if (scrollPosition > inicioHeight) {
+            navbar.classList.add('navbar-scrolled'); // Añade clase para fondo blanco
+        } else {
+            navbar.classList.remove('navbar-scrolled'); // Elimina clase para volver a fondo transparente
+        }
+    };
+
+    // Escucha el evento de scroll
+    window.addEventListener('scroll', handleNavbarBackground);
+});
 

@@ -68,21 +68,26 @@ h1, h2, h3, h4 {
 /* Navbar */
 
 .navbar {
-    background-color: transparent !important; /* Elimina cualquier fondo */
+    background-color: transparent !important; /* Mantiene el fondo transparente inicialmente */
     padding: 10px 20px;
-    position: fixed; /* Fija el navbar en la parte superior de la pantalla */
+    position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
-    border-bottom: none; /* Elimina cualquier borde inferior */
-    box-shadow: none; /* Elimina cualquier sombra */
-    display: flex;
-    justify-content: center; /* Centra el contenido del navbar */
-    backdrop-filter: none; /* Elimina el desenfoque de fondo */
+    border-bottom: none;
+    box-shadow: none;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transición para suavizar el cambio */
+}
+
+
+/* Estado del navbar al desplazarse: fondo blanco */
+.navbar-scrolled {
+    background-color: white !important; /* Cambia el fondo a blanco */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Añade una ligera sombra */
 }
 
 .navbar-brand img {
-    max-height: 100px; /* Ajusta el tamaño del logo si es necesario */
+    max-height: 200px; /* Ajusta el tamaño del logo si es necesario */
 }
 
 .navbar-nav {
@@ -112,138 +117,80 @@ h1, h2, h3, h4 {
 /*-----------------------------------------------------------*/
 /* Sección Nosotros */
 #nosotros {
-    background: url('../img/nosotros.png') no-repeat center center/cover;
-    height: 100vh;
-    color: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 40px;
+    background-color: #e9ecef; /* Fondo claro */
+    padding: 60px 0;
 }
 
 #nosotros h2 {
-    color: inherit;
+    color: #007bff; /* Color azul */
     margin-bottom: 20px;
-    font-size: 2.5rem;
-    font-weight: 700;
+    font-family: 'Montserrat', sans-serif; /* Asegura que use Montserrat */
 }
 
 #nosotros p {
-    color: #ffffff;
-    background-color: rgba(0, 0, 0, 0.231);
+    color: #333;
     font-size: 1.2rem;
-    font-weight: 400;
-    margin-bottom: 20px;
-    padding: 10px;
-    border-radius: 5px;
+    line-height: 1.5;
+    font-family: 'Montserrat', sans-serif; /* Asegura que use Montserrat */
 }
 
 /*-----------------------------------------------------------*/
 
 /*Servicios*/
 
-#servicios {
-    background-color: #f7f7f7;
-    padding-bottom: 70px;
-    font-family: 'Montserrat', sans-serif;
-}
-
 #servicios h2 {
-    color: #003366;
-    margin-bottom: 40px;
-    text-align: center;
+    color: #007bff; /* Color azul */
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding: 20px;
+
 }
 
-
-.service-card {
-    overflow: hidden;
+#servicios .card {
+    border: none; /* Eliminar borde */
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    position: relative;
-    font-family: 'Montserrat', sans-serif; /* Asegura que el texto dentro de las tarjetas use Montserrat */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    transition: transform 0.3s, box-shadow 0.3s; /* Transición para hover */
 }
 
-.service-card img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    transition: transform 0.3s ease;
+#servicios .card:hover {
+    transform: translateY(-10px); /* Levanta la tarjeta en hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
 }
 
-.service-card h4 {
-    color: #003366;
-    font-weight: 600;
-    margin-top: 15px;
-    text-align: center;
-    font-family: 'Montserrat', sans-serif; /* Asegura que el texto dentro de las tarjetas use Montserrat */
-    font-size: 1.5rem;
-    position: absolute;
-    bottom: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1;
-    background-color: rgba(255, 255, 255, 0.237);
-    padding: 5px 10px;
-    border-radius: 5px;
+#servicios .card-title, #servicios .card-text {
+    font-family: 'Montserrat', sans-serif; /* Asegura que use Montserrat */
 }
 
-.service-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.service-card:hover img {
-    transform: scale(1.1);
-}
-
-@keyframes slideInLeft {
-    0% {
-        transform: translateX(-100%);
-        opacity: 0;
-    }
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-@keyframes slideInRight {
-    0% {
-        transform: translateX(100%);
-        opacity: 0;
-    }
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
+/* Inicialmente oculta las tarjetas de servicio */
 .service-card {
-    opacity: 0;
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    opacity: 0; /* Oculta las tarjetas */
+    transform: translateY(20px); /* Mueve las tarjetas un poco hacia abajo para un mejor efecto */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Añade transición para el efecto de aparición */
 }
 
-.service-card.slide-in-left {
-    animation: slideInLeft 0.8s ease forwards;
+/* Clase para mostrar las tarjetas */
+.service-card.show {
+    opacity: 1; /* Muestra las tarjetas */
+    transform: translateY(0); /* Vuelve a su posición original */
 }
 
-.service-card.slide-in-right {
-    animation: slideInRight 0.8s ease forwards;
-}
-
-@media (max-width: 768px) {
-    .service-card {
+/* Animación de entrada desde la izquierda */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100%); /* Comienza desde la izquierda */
+    }
+    to {
         opacity: 1;
-        transform: none;
-        transition: none;
+        transform: translateX(0); /* Termina en su posición original */
     }
 }
+
+.slide-in-left {
+    animation: slideInLeft 1s ease forwards; /* Aplica la animación durante 1 segundo */
+}
+
 
 
 /*-----------------------------------------------------------*/
@@ -270,6 +217,35 @@ h1, h2, h3, h4 {
 
 /*-----------------------------------------------------------*/
 /* Contacto */
+#contacto {
+    background-color: #f7f7f7; /* Fondo suave para diferenciar la sección */
+    padding: 50px 0;
+}
+
+#contacto h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    color: #003366;
+    margin-bottom: 50px;
+}
+
+#contacto .form-label {
+    font-weight: 600;
+    color: #333;
+}
+
+#contacto .form-control {
+    border-radius: 5px;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
 #contacto .btn {
     background-color: #003366;
     border: none;
@@ -280,7 +256,18 @@ h1, h2, h3, h4 {
     width: 100%;
     display: block;
     margin-top: 10px;
+    transition: background-color 0.3s ease;
 }
+
+#contacto .btn:hover {
+    background-color: #002244; /* Color más oscuro al pasar el ratón */
+}
+#contacto p {
+    font-size: 1.2rem; /* Ajusta el tamaño de la fuente */
+    color: #333; /* Color del texto */
+    margin-bottom: 10px; /* Espacio debajo del texto */
+}
+
 
 
 
