@@ -191,7 +191,14 @@ h1, h2, h3, h4 {
     animation: slideInLeft 1s ease forwards; /* Aplica la animación durante 1 segundo */
 }
 
-
+/* Desactivar transiciones en pantallas pequeñas */
+@media (max-width: 768px) {
+    .service-card {
+        opacity: 1; /* Muestra las tarjetas sin transición */
+        transform: none; /* Elimina transformaciones */
+        transition: none; /* Elimina transiciones */
+    }
+}
 
 /*-----------------------------------------------------------*/
 /* Ícono flotante */
