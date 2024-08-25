@@ -102,6 +102,12 @@ h1, h2, h3, h4 {
     color: #ffffff;
 }
 
+.navbar-brand img {
+    max-height: 60px; /* Altura máxima de la imagen */
+    width: auto; /* Mantiene la proporción de la imagen */
+    transition: max-height 0.3s ease; /* Transición suave para cambios de tamaño */
+}
+
 .navbar-nav .nav-link {
     color: #615e5e;
     font-weight: 500;
@@ -125,26 +131,25 @@ h1, h2, h3, h4 {
 /* Media Query para Pantallas Pequeñas */
 @media (max-width: 768px) {
     #inicio {
-        height: auto; /* Ajusta la altura para pantallas pequeñas */
+        max-height: 400px; /* Ajusta la altura para pantallas pequeñas */
         padding-top: 70px; /* Añade espacio adicional para separar la imagen del navbar */
-        margin-top: 145px;
+        margin-top: 10px;
     }
-
     #inicio h1 {
         color: #216eba;
         font-weight: bold;
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
     
     #inicio p {
         color: #005082;
-        font-size: 1.5rem;
+        font-size: 1rem;
         margin-top: 10px;
     }
 
     #inicio img {
         object-fit: contain;
-        height: auto;
+        max-height: auto;
     }
 
     .navbar {
@@ -160,10 +165,14 @@ h1, h2, h3, h4 {
 
     .navbar-brand {
         color: #000000;
+        max-height: 60px;
     }
-
+    .navbar-brand img {
+        max-height: 50px; 
+    }
     .navbar-toggler-icon {
         background-image: url("data:image/svg+xml;charset=UTF8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(150, 150, 150, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+        max-height: 50px;
     }
 }
 /*-----------------------------------------------------------*/
@@ -175,8 +184,10 @@ h1, h2, h3, h4 {
 
 #nosotros h2 {
     color: #007bff; /* Color azul */
-    margin-bottom: 20px;
+    margin-bottom: 50px;
     font-family: 'Montserrat', sans-serif; /* Asegura que use Montserrat */
+    font-size: 2rem;
+    padding-bottom: 25px;
 }
 
 #nosotros p {
@@ -197,6 +208,7 @@ h1, h2, h3, h4 {
     padding: 20px;
     font-family: 'Montserrat', sans-serif; /* Asegura que use Montserrat */
     text-align: center;
+    font-size: 2rem;
 }
 
 #servicios .card {
@@ -305,9 +317,9 @@ h1, h2, h3, h4 {
 
 #contacto h2 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 2.5rem;
-    color: #003366;
-    margin-bottom: 50px;
+    font-size: 2rem;
+    color: #007bff;
+    margin-bottom: 70px;
 }
 
 #contacto .form-label {
@@ -355,7 +367,7 @@ h1, h2, h3, h4 {
 /* Footer */
 
 footer {
-    background-color: #333; /* Fondo oscuro del footer */
+    background-color: #444242b9; /* Fondo oscuro del footer */
     color: #fff; /* Color de texto blanco */
     padding: 20px 0;
 }
