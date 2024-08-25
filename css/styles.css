@@ -49,61 +49,68 @@ h1, h2, h3, h4 {
 }
 
 #inicio {
-    background: url('../img/principal.png') no-repeat center center/cover;
-    height: 100vh;
-    color: #333333;
-}
-
-#inicio h1, #inicio p {
-    color: inherit;
-}
-
-#inicio .btn {
-    background-color: #003366;
-    border: none;
-    font-weight: 600;
-}
-
-/*-----------------------------------------------------------*/
-/* Navbar */
-
-.navbar {
-    background-color: transparent !important; /* Mantiene el fondo transparente inicialmente */
-    padding: 10px 20px;
-    position: fixed;
-    top: 0;
+    height: 100vh; /* Ocupa toda la altura de la pantalla en dispositivos grandes */
     width: 100%;
-    z-index: 1000;
-    border-bottom: none;
-    box-shadow: none;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transición para suavizar el cambio */
-}
-
-
-/* Estado del navbar al desplazarse: fondo blanco */
-.navbar-scrolled {
-    background-color: white !important; /* Cambia el fondo a blanco */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Añade una ligera sombra */
-}
-
-.navbar-brand img {
-    max-height: 200px; /* Ajusta el tamaño del logo si es necesario */
-}
-
-.navbar-nav {
+    overflow: hidden;
+    position: relative;
     display: flex;
+    align-items: center;
     justify-content: center;
-    flex-grow: 1;
+    text-align: center;
+}
+
+#inicio img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+#inicio .container {
+    z-index: 1;
+    color: #fff;
+}
+
+#inicio h1 {
+    color: #216eba;
+    font-weight: bold;
+}
+
+#inicio p {
+    color: #005082;
+    font-size: 2rem;
+    margin-top: 10px;
+}
+
+/* Navbar */
+.navbar {
+    background-color: transparent !important;
+    padding: 10px 20px;
+    z-index: 1000;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar-scrolled {
+    background-color: white !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    color: #ffffff;
 }
 
 .navbar-nav .nav-link {
-    color: #1b1a1a; /* Color de los enlaces */
+    color: #615e5e;
     font-weight: 500;
     padding: 8px 15px;
+    font-size: 1.5rem;
 }
 
 .navbar-nav .nav-link:hover {
-    color: #cccccc; /* Color más claro al pasar el mouse */
+    color: #2b52ae;
 }
 
 .navbar-toggler {
@@ -111,9 +118,54 @@ h1, h2, h3, h4 {
 }
 
 .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=UTF8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28%23ffffff%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    color: #ffffff;
+    background-image: url("data:image/svg+xml;charset=UTF8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(150, 150, 150, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
+/* Media Query para Pantallas Pequeñas */
+@media (max-width: 768px) {
+    #inicio {
+        height: auto; /* Ajusta la altura para pantallas pequeñas */
+        padding-top: 70px; /* Añade espacio adicional para separar la imagen del navbar */
+        margin-top: 145px;
+    }
+
+    #inicio h1 {
+        color: #216eba;
+        font-weight: bold;
+        font-size: 2rem;
+    }
+    
+    #inicio p {
+        color: #005082;
+        font-size: 1.5rem;
+        margin-top: 10px;
+    }
+
+    #inicio img {
+        object-fit: contain;
+        height: auto;
+    }
+
+    .navbar {
+        position: relative;
+        background-color: white !important;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-nav .nav-link {
+        color: #615e5e;
+        font-size: 1rem;
+    }
+
+    .navbar-brand {
+        color: #000000;
+    }
+
+    .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml;charset=UTF8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(150, 150, 150, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    }
+}
 /*-----------------------------------------------------------*/
 /* Sección Nosotros */
 #nosotros {
@@ -234,7 +286,7 @@ h1, h2, h3, h4 {
     transform: scale(1.15); /* Agranda el ícono al pasar el mouse */
 }
 
-@media (max-width: 920px) {
+@media (max-width: 768px) {
     .whatsapp-icon {
         max-width: 50px;
         max-height: 50px;
