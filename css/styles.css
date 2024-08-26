@@ -43,11 +43,9 @@ body {
 
 /*-----------------------------------------------------------*/
 /* Generales */
-h1, h2, h3, h4 {
-    color: #003366;
+h1, h2, h3, h4, h5, h6, p, a, div, span, li {
     font-family: 'Montserrat', sans-serif;
 }
-
 #inicio {
     height: 100vh; /* Ocupa toda la altura de la pantalla en dispositivos grandes */
     width: 100%;
@@ -183,10 +181,11 @@ h1, h2, h3, h4 {
 }
 
 #nosotros h2 {
-    color: #007bff; /* Color azul */
+    color: #216eba; /* Color azul */
+    font-weight: bold;
     margin-bottom: 50px;
     font-family: 'Montserrat', sans-serif; /* Asegura que use Montserrat */
-    font-size: 2rem;
+    font-size: 2.5rem;
     padding-bottom: 25px;
 }
 
@@ -202,78 +201,35 @@ h1, h2, h3, h4 {
 /*Servicios*/
 
 #servicios h2 {
-    color: #007bff; /* Color azul */
+    color: #216eba; /* Color azul */
+    font-weight: bold;
     margin-top: 10px;
     margin-bottom: 20px;
     padding: 20px;
     font-family: 'Montserrat', sans-serif; /* Asegura que use Montserrat */
     text-align: center;
-    font-size: 2rem;
+    font-size: 2.5rem;
 }
 
 #servicios .card {
-    border: none; /* Eliminar borde */
-    border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
-    transition: transform 0.3s, box-shadow 0.3s; /* Transición para hover */
-    overflow: hidden; /* Asegura que el contenido de la tarjeta esté contenido */
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    /* Elimina las transiciones */
+    transition: none;
 }
 
 #servicios .card:hover {
-    transform: translateY(-10px); /* Levanta la tarjeta en hover */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más intensa en hover */
+    /* Elimina el efecto de hover */
+    transform: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Mantén la misma sombra que en estado normal */
 }
 
-#servicios .card-title, #servicios .card-text {
-    font-family: 'Montserrat', sans-serif; /* Asegura que use Montserrat */
-    color: #333; /* Color de texto oscuro para mejor legibilidad */
-}
-
-/* Inicialmente oculta las tarjetas de servicio */
 .service-card {
-    opacity: 0; /* Oculta las tarjetas */
-    transform: translateY(20px); /* Mueve las tarjetas un poco hacia abajo para un mejor efecto */
-    transition: opacity 0.5s ease, transform 0.5s ease; /* Añade transición para el efecto de aparición */
-}
-
-/* Clase para mostrar las tarjetas */
-.service-card.show {
-    opacity: 1; /* Muestra las tarjetas */
-    transform: translateY(0); /* Vuelve a su posición original */
-}
-
-/* Animación de entrada desde la izquierda */
-@keyframes slideInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-100%); /* Comienza desde la izquierda */
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0); /* Termina en su posición original */
-    }
-}
-
-.slide-in-left {
-    animation: slideInLeft 1s ease forwards; /* Aplica la animación durante 1 segundo */
-}
-
-/* Desactivar transiciones en pantallas pequeñas */
-@media (max-width: 920px) {
-    .service-card {
-        opacity: 1; /* Muestra las tarjetas sin transición */
-        transform: none; /* Elimina transformaciones */
-        transition: none; /* Elimina transiciones */
-        box-shadow: none; /* Elimina la sombra para un diseño más limpio en pantallas pequeñas */
-    }
-    #servicios .card:hover {
-        transform: none; /* Desactiva el efecto de hover en pantallas pequeñas */
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra más ligera en hover */
-    }
-    #servicios .card img {
-        height: auto; /* Asegura que las imágenes mantengan su proporción */
-        object-fit: cover; /* Mantiene el ajuste de la imagen en su contenedor */
-    }
+    opacity: 1; /* Asegúrate de que las tarjetas estén visibles */
+    transform: none; /* Sin transformación */
+    transition: none; /* Sin transiciones */
 }
 
 
@@ -317,8 +273,9 @@ h1, h2, h3, h4 {
 
 #contacto h2 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 2rem;
-    color: #007bff;
+    font-size: 2.5rem;
+    color: #216eba; /* Color azul */
+    font-weight: bold;
     margin-bottom: 70px;
 }
 
@@ -361,7 +318,44 @@ h1, h2, h3, h4 {
     margin-bottom: 20px; /* Espacio debajo del texto */
     margin-top: 20px;
 }
+/*-------------------------------------------------------------*/
+/*Empresas*/
 
+/* Sección Empresa de Seguro */
+#empresa-seguro {
+    max-height: auto; /* Altura máxima de la sección */
+    overflow: hidden; /* Asegura que el contenido no exceda la altura */
+}
+
+.card-empresa {
+    height: 100px; /* Ajusta la altura para que sea consistente */
+    width: 100%; /* Asegura que ocupe todo el ancho disponible en su contenedor */
+    padding: 10px; /* Relleno dentro de las tarjetas */
+}
+
+.card-empresa img {
+    width: 70px; /* Ancho fijo para la imagen */
+    height: 70px; /* Alto fijo para la imagen */
+    object-fit: cover; /* Asegura que la imagen mantenga su proporción */
+    border-radius: 5px; /* Bordes redondeados para las imágenes */
+}
+
+.card-empresa div {
+    padding-left: 15px; /* Espaciado entre la imagen y el texto */
+}
+
+/* Estilos para Título y Descripción */
+.titulo-empresa {
+    font-size: 1.8rem; /* Tamaño de fuente ajustable */
+    font-weight:700; /* Grosor de fuente ajustable */
+    color: #4a4747; /* Color de fuente ajustable */
+    
+}
+
+.descripcion-empresa {
+    font-size: 1.5rem; /* Tamaño de fuente ajustable */
+    color: #666; /* Color de fuente ajustable */
+}
 
 /*-----------------------------------------------------------*/
 /* Footer */

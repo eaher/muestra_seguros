@@ -9,29 +9,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 
-//Efecto servicios
-
-document.addEventListener("DOMContentLoaded", function() {
-    const serviceSection = document.getElementById('servicios');
-    const serviceCards = document.querySelectorAll('.service-card');
-
-    serviceSection.addEventListener('mouseenter', function() {
-        serviceCards.forEach((card, index) => {
-            setTimeout(() => {
-                card.classList.add('slide-in-left');
-            }, index * 200); // Ajusta el retardo entre las animaciones para un efecto más suave
-        });
-    });
-
-    serviceSection.addEventListener('mouseleave', function() {
-        serviceCards.forEach((card) => {
-            card.classList.remove('slide-in-left');
-        });
-    });
-});
-
-
-
 //pantalla de carga 
 
 document.addEventListener("DOMContentLoaded", function() {
